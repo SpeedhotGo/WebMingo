@@ -1,0 +1,21 @@
+<h1>User Name : {{useName}} </h1>
+<button type="button" (click)="addpost()">Post Add</button>
+<button [routerLink]="['/DisplayPost']" routerLinkActive="router-link-active"  class="update-btn">View Post</button>
+
+<!-- <a href="/formdata"><button type="button" class="btn btn-success m-3">Go Back</button></a> -->
+<div class="container " *ngIf="showPost">
+    <h3>Add News Post From Admin Side</h3>
+    <hr>
+    <label for="postDesc">PostTitle  </label>
+        <ckeditor [editor]="Editor" [(ngModel)]="regi_Model.postTitle" (ready)="onReady($event)"></ckeditor>
+    
+        <label for="postTitle">Post Des</label>
+
+        <ckeditor [editor]="Editor" [(ngModel)]="regi_Model.postDesc" (ready)="onReady($event)"></ckeditor>
+  
+    <label for="postImageUrl">postImageUrl</label>
+
+    <input type="postImageUrl" id="postImageUrl" name="postImageUrl" [(ngModel)]="regi_Model.postImageUrl" placeholder="postImageUrl" required>
+        
+    <button (click)="AddPostUser()" class="update-btn">AddPost</button>
+</div>

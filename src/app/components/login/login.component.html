@@ -1,0 +1,15 @@
+<!-- <a href="/formdata"><button type="button" class="btn btn-success m-3">Go Back</button></a> -->
+<div class="container ">
+    <h3>User Login</h3>
+    <hr>
+    <form action="" enctype="multipart/form-data">
+
+        <label for="name">User login Name</label>
+        <input type="text" id="Name" name="username" [(ngModel)]="regi_Model.username" class="form-control" placeholder="Name" required>
+
+        <label for="password">password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="regi_Model.password" placeholder="password" required>
+
+        <input type="submit" (click)="Loginfun()"  value="Login">
+    </form>
+</div>

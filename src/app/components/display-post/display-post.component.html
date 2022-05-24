@@ -1,0 +1,56 @@
+<style>
+    ul.comeant_page li img {
+    max-width: 250px;
+    width: 100%;
+}
+    </style>
+    <h2>User Post</h2>
+    <div class="container-sm">
+        <form class="d-flex">
+        </form>
+    </div>
+    <br>
+    <br>
+  <div class=" vie" id="viewdata" *ngIf="viewdata">
+    <ul class="comeant_page">
+        <li *ngFor="let item of PostData" >
+            <div>
+                <div>
+                    {{item.postTitle}}
+                </div>
+                <div>
+                    {{item.postDesc}}
+                    <div>
+                    <img src="{{ item.postImageUrl}}" alt="">
+                    </div>
+                    <div>
+                        <button type="submit"  (click)="editPost(item.postTitle,item.postDesc,item.postImageUrl, item._id)"> Edit </button>
+                        <button type="submit"  (click)=" DeleteUserPost(item._id)"> Delete Post </button>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+  </div>
+
+
+
+    <div class="container " *ngIf="showPostUpdate">
+        <h3>Add News Post From Admin Side</h3>
+        <hr>
+        <label for="postDesc">PostTitle  </label>
+            <ckeditor [editor]="Editor" [(ngModel)]="this.regi_Model.postTitle" (ready)="onReady($event)"></ckeditor>
+        
+            <label for="postTitle">Post Des</label>
+    
+            <ckeditor [editor]="Editor" [(ngModel)]="this.regi_Model.postDesc" (ready)="onReady($event)"></ckeditor>
+      
+        <label for="postImageUrl">postImageUrl</label>
+    
+        <input type="postImageUrl" id="postImageUrl" name="postImageUrl" [(ngModel)]="regi_Model.postImageUrl" placeholder="postImageUrl" required>
+            
+        <button type="submit"  (click)="UpdatePost()"> Update </button>
+    </div>
+
+
+      
